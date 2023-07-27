@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e936d4bc-4792-4df8-8e66-f4ce72fb3d4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/ApiOfficeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Factory/DtoFactoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Factory/FactoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Office/Factory/DtoFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Office/Factory/Factory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Office/Persister/OfficePersister.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Office/Types/Response.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/Office/Types/Status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/app-symfony-shop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/app-symfony-shop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/OfficeDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dto/OfficeDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Office.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Office.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Utils/LifeCycleDates.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Utils/LifeCycleDates.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Utils/LifeCycles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Utils/LifeCycles.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +173,7 @@
       <workItem from="1687382906291" duration="683000" />
       <workItem from="1689343288593" duration="1224000" />
       <workItem from="1690418370784" duration="3752000" />
-      <workItem from="1690466395735" duration="13307000" />
+      <workItem from="1690466395735" duration="15296000" />
     </task>
     <servers />
   </component>
