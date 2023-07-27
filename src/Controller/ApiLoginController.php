@@ -16,5 +16,5 @@ class ApiLoginController extends AbstractController
             'path' => 'src/Controller/ApiLoginController.php',
         ]);
     }
-    
+
 }
