@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set icon %}
+        {# this is the content displayed as a panel in the toolbar #}
+        <svg xmlns="http://www.w3.org/2000/svg"> ... </svg>
+        <span class="sf-toolbar-value">Request</span>
+    {% endset %}
+
+    <div>
+        <section>
+            <div>
+                <h1>Landing...</h1>
+                {{ icon }}
+            </div>
+        </section>
+    </div>
+    {% block page_contents %}
+        <section>
+            <div>
+                <h1>Building...</h1>
+            </div>
+        </section>
+    {% endblock %}
+{% endblock %}
+
