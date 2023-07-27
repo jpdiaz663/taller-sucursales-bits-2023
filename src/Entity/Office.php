@@ -13,13 +13,14 @@ use App\Entity\Utils\LifeCycles;
 use App\Processor\OfficeDataProcessor;
 use App\Provider\CurrencyProvider;
 use App\Repository\OfficeRepository;
+use App\Service\Office\Types\Status;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: OfficeRepository::class)]
-#[ORM\HasLifecycleCallbacks]
 #[Post(input: OfficeDto::class, processor: OfficeDataProcessor::class)]
 #[Get(output: OfficeDto::class, provider: CurrencyProvider::class)]
+#[ORM\HasLifecycleCallbacks()]
 class Office
 {
     use LifeCycles;
@@ -49,14 +50,18 @@ class Office
     #[ORM\JoinColumn(nullable: false)]
     private Currency $currency;
 
+    #[ORM\Column(type: 'string')]
+    private Status|string $status;
+
+    // Singleton
     public function __construct(string $code, string $description, string $address, string $rtn, Currency $currency)
     {
-
         $this->code = $code;
         $this->description = $description;
         $this->address = $address;
         $this->rtn = $rtn;
         $this->currency = $currency;
+        $this->status = Status::ACTIVE->value;
     }
 
 
@@ -123,6 +128,39 @@ class Office
         $this->currency = $currency;
 
         return $this;
+    }
+
+    public function updateFromDto(OfficeDto $officeDto): void
+    {
+        $this->code = $officeDto->code;
+        $this->description = $officeDto->description;
+        $this->address = $officeDto->address;
+        $this->rtn = $officeDto->rtn;
+        $this->currency = $officeDto->currency;
+    }
+
+
+    public function changeStatus(Status $status): void
+    {
+        if ($this->status === $status) {
+            return;
+        }
+
+        $this->status = $status->value;
+    }
+
+
+    public function getStatus(): Status|string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param Status $status
+     */
+    public function setStatus(Status $status): void
+    {
+        $this->status = $status;
     }
 
 }

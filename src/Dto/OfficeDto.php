@@ -5,6 +5,7 @@ namespace App\Dto;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Tests\Fixtures\Metadata\Get;
+use App\Entity\Currency;
 use App\Entity\Office;
 use App\Validator\IsValidCurrency;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -13,33 +14,35 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @author bitsJuan.Diaz <juan.diaz@bitsamericas.com>
  */
 //#[ApiResource]
-final class OfficeDto
+class OfficeDto
 {
-    #[Assert\NotBlank]
-    public string $code;
 
+    public function __construct(
     #[Assert\NotBlank]
-    public string $description;
-
+    public string $code,
     #[Assert\NotBlank]
-    public string $address;
-
+    public string $description,
     #[Assert\NotBlank]
-    public string $rtn;
-
+    public string $address,
+    #[Assert\NotBlank]
+    public string $rtn,
     #[Assert\NotBlank]
     #[IsValidCurrency]
 //    #[ApiProperty(readableLink: false, writableLink: false)]
-    public string $currency;
+    public string|Currency $currency
+    ) {
+
+    }
 
     public static function createFromEntity(Office $office): OfficeDto
     {
-        $dto = new self();
-        $dto->code = $office->getCode();
-        $dto->description = $office->getDescription();
-        $dto->address =  $office->getAddress();
-        $dto->rtn = $office->getRtn();
-        $dto->currency = $office->getCurrency()->getSign();
-        return $dto;
+        return new self(
+            $office->getCode(),
+            $office->getDescription(),
+            $office->getAddress(),
+            $office->getRtn(),
+            $office->getCurrency()->getSign()
+        );
     }
+
 }
