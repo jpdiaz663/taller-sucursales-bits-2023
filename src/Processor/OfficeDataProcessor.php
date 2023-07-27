@@ -7,12 +7,13 @@ use ApiPlatform\State\ProcessorInterface;
 use App\Dto\OfficeDto;
 use App\Entity\Office;
 use App\Repository\CurrencyRepository;
+use App\Repository\OfficeRepository;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
 class OfficeDataProcessor implements ProcessorInterface
 {
-    public function __construct(private readonly CurrencyRepository $currencyRepository)
+    public function __construct(private readonly CurrencyRepository $currencyRepository, private readonly OfficeRepository $officeRepository)
     {
     }
 
@@ -37,7 +38,9 @@ class OfficeDataProcessor implements ProcessorInterface
             $currency
         );
 
-        return $office;
+        $this->officeRepository->save($office, true);
+
+        return $data;
     }
 
 

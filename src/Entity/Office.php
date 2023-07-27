@@ -11,14 +11,15 @@ use ApiPlatform\Metadata\Post;
 use App\Dto\OfficeDto;
 use App\Entity\Utils\LifeCycles;
 use App\Processor\OfficeDataProcessor;
+use App\Provider\CurrencyProvider;
 use App\Repository\OfficeRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: OfficeRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-#[ApiResource]
-//#[Post(input: OfficeDto::class, processor: OfficeDataProcessor::class)]
+#[Post(input: OfficeDto::class, processor: OfficeDataProcessor::class)]
+#[Get(output: OfficeDto::class, provider: CurrencyProvider::class)]
 class Office
 {
     use LifeCycles;
@@ -59,7 +60,7 @@ class Office
     }
 
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
