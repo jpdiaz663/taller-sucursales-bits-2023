@@ -18,9 +18,6 @@ Ejercicio práctico (SOLID Y CLEAN CODE)
 7. Verificar en su BD si se encuentran las tablas: `user, office, currency`
 8. Arrancamos el servidor local de symfony `symfony serve -d` o el sistema que tenga para iniciar el server
 
-
-### ✅ Tests execution
-
 ## 👩‍💻 Funcionalidades
 
 Este proyecto es un api rest, su objetivo es hacer un CRUD con los verbos (POST, PUT, GET, DELETE) gestionando sucursales de BITS AMERICAS, tiene 2 versiones, 1 es creada con ApiPlatform es un paquete para gestion de proyectos REST, la segunda version es utilizando solo las herramientas que nos provee el framework symfony, nos enfocaremos a ejecutar las funcionalidad con la 2 versión.
