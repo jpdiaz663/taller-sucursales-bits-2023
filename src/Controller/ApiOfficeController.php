@@ -26,10 +26,10 @@ class ApiOfficeController extends AbstractController
     }
 
     #[Route(path: '/{id}', name: 'office_api_create_get_offices', methods: ['GET'])]
-    public function getOffices(?int $id = null): JsonResponse
+    public function getOffices(?Office $id = null): JsonResponse
     {
         if ($id) {
-            return $this->json($this->officeRepository->find($id));
+            return $this->json($id);
         }
 
         return $this->json($this->officeRepository->findBy([
